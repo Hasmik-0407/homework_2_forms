@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Store - Registration</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            width: 400px;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #f7941e;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        input[type="url"],
+        input[type="date"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-group input {
+            width: 45%;
+        }
+
+        .gender input {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .payment-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .payment-details button {
+            width: 48%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .payment-details button.active {
+            background-color: #f7941e;
+            color: white;
+        }
+
+        .terms {
+            display: flex;
+            align-items: center;
+        }
+
+        .terms input {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background-color: #f7941e;
+            border: none;
+            padding: 15px;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #e67e00;
+        }
+
+        .welcome-message {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Account Registration</h2>
+        <form id="registrationForm">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" placeholder="Enter your full name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Create a password" required>
+
+            <div class="form-group">
+                <div>
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" required>
+                </div>
+                <div class="gender">
+                    <label>Gender</label>
+                    <div>
+                        <input type="radio" name="gender" id="male" value="male"> <label for="male">Male</label>
+                        <input type="radio" name="gender" id="female" value="female"> <label for="female">Female</label>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Payment Details</h3>
+            <div class="payment-details">
+                <button type="button" class="active">Credit Card</button>
+                <button type="button">Paypal</button>
+            </div>
+
+            <input type="text" placeholder="Card Number" required>
+            <input type="text" placeholder="Card CVC" required>
+
+            <div class="terms">
+                <input type="checkbox" id="terms" required> 
+                <label for="terms">I accept the terms and conditions</label>
+            </div>
+
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+
+        <div class="welcome-message" id="welcomeMessage">
+            Welcome!
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('registrationForm');
+        const welcomeMessage = document.getElementById('welcomeMessage');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            form.style.display = 'none';
+            welcomeMessage.style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>
